@@ -1,0 +1,261 @@
+# Secret Echo - Chapters Management API
+
+## Overview
+
+Secret Echo is a backend API built with TypeScript, Express, and MongoDB, designed to manage educational chapters for students. This project provides endpoints to upload, retrieve, and filter chapters, with caching support using Redis. The API supports file uploads for bulk chapter creation, with validation to ensure data integrity, and returns detailed responses for both successful and failed operations.
+
+### Features
+
+- **Upload Chapters via JSON File**: Bulk upload chapters using a JSON file, with support for array   formats.
+- **Retrieve Chapters**: Fetch chapters with filtering, pagination, sorting, and caching.
+- **Error Handling**: Comprehensive error handling for invalid data, with failed chapters returned in the response.
+- **Redis Caching**: Cache chapter data to improve performance, with cache invalidation on updates.
+- **Rate Limiting**: Have a rate limiting setup for the API Exhaust safety.
+- **Mongoose Validation**: Schema validation to ensure data consistency in MongoDB.
+
+## Tech Stack
+
+- **Node.js**: Runtime environment.
+- **TypeScript**: For type safety and better developer experience.
+- **Express**: Web framework for building the API.
+- **MongoDB**: Database for storing chapter data, with Mongoose as the ODM.
+- **Redis**: In-memory caching to improve performance.
+- **Multer**: Middleware for handling file uploads.
+- **Joi**: Schema validation for request data (though removed in favor of Mongoose validation in some cases).
+- **Dotenv**: For environment variable management.
+
+## Prerequisites
+
+- Node.js (v16 or higher)
+- MongoDB (local or cloud instance)
+- Redis Cloud account (or local Redis instance)
+- Postman (for testing API endpoints)
+
+## Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd secret-echo
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env` file in the project root and add the following variables:
+
+```env
+APP_NAME=secret-echo
+APP_ENV=development
+APP_PORT=3000
+
+TOKEN_SECRET={{TOKEN_SECRET}}
+
+MONGO_URI={{TOKEN_SECRET}}
+
+GEMINI_API_KEY={{GEMINI_API_KEY}}
+
+REDIS_CLOUD_HOST={{REDIS_CLOUD_HOST}}
+REDIS_CLOUD_PORT={{REDIS_CLOUD_PORT}}
+REDIS_CLOUD_USERNAME={{REDIS_CLOUD_USERNAME}}
+REDIS_CLOUD_PASSWORD={{REDIS_CLOUD_PASSWORD}}
+REDIS_CLOUD_TLS={{REDIS_CLOUD_TLS}}
+
+```
+
+### 4. Start the Server
+
+```bash
+npm run dev
+```
+
+The server will run on `http://localhost:3000` (or the port specified in `.env`).
+
+## API Endpoints
+
+### 1. Upload Chapters
+
+- **Endpoint**: `POST /api/v1/chapters`
+- **Description**: Upload chapters via a JSON file.
+- **Authentication**: Requires admin authentication (Bearer token).
+- **Request**:
+  - Content-Type: `multipart/form-data`
+  - Body:
+    - `file`: JSON file containing an array of chapters .
+  - Example JSON File (`chapters.json`):
+
+    ```json
+    [
+      {
+        "subject": "Physics",
+        "chapter": "Units and Dimensions",
+        "class": "Class 11",
+        "unit": "Mechanics 1",
+        "yearWiseQuestionCount": {
+          "2019": 2,
+          "2020": 6,
+          "2021": 8,
+          "2022": 4,
+          "2023": 6,
+          "2024": 3,
+          "2025": 10
+        },
+        "questionSolved": 39,
+        "status": "Completed",
+        "isWeakChapter": true
+      }
+    ]
+    ```
+
+- **Response**:
+  - Status: `201 Created`
+  - Body:
+
+    ```json
+    {
+      "success": true,
+      "data": {
+        "uploadedCount": 1,
+        "failedChapters": []
+      },
+      "errors": []
+    }
+    ```
+
+  - If some chapters fail validation:
+
+    ```json
+    {
+      "success": true,
+      "data": {
+        "uploadedCount": 0,
+        "failedChapters": [
+          {
+            "chapter": {
+              "chapter": "Mathematics in Physics",
+              "class": "Class 11",
+              "unit": "Mechanics 1",
+              "yearWiseQuestionCount": {
+                "2019": 0,
+                "2020": 2,
+                "2021": 5,
+                "2022": 5,
+                "2023": 3,
+                "2024": 7,
+                "2025": 6
+              },
+              "questionSolved": 0,
+              "status": "Not Started",
+              "isWeakChapter": false
+            },
+            "error": "\"subject\" is required"
+          }
+        ]
+      },
+      "errors": []
+    }
+    ```
+
+### 2. Get All Chapters
+
+- **Endpoint**: `GET /api/v1/chapters`
+- **Description**: Retrieve a list of chapters with optional filters, pagination, and sorting.
+- **Authentication**: Requires authentication (Bearer token).
+- **Query Parameters**:
+  - `class` (optional): Filter by class (e.g., `Class 11`).
+  - `unit` (optional): Filter by unit (e.g., `Mechanics 1`).
+  - `status` (optional): Filter by status (`Not Started`, `In Progress`, `Completed`).
+  - `weakChapters` (optional): Filter by weak chapters (`true` or `false`).
+  - `subject` (optional): Filter by subject (e.g., `Physics`).
+  - `page` (default: `1`): Page number for pagination.
+  - `limit` (default: `10`): Number of chapters per page.
+  - `sortBy` (default: `chapter`): Field to sort by (e.g., `chapter`, `questionSolved`).
+  - `order` (default: `asc`): Sort order (`asc` or `desc`).
+- **Response**:
+  - Status: `200 OK`
+  - Body:
+
+    ```json
+    {
+      "success": true,
+      "data": {
+        "total": 1,
+        "chapters": [
+          {
+            "chapter_pid": "chapter_xxx",
+            "subject": "Physics",
+            "chapter": "Units and Dimensions",
+            "class": "Class 11",
+            "unit": "Mechanics 1",
+            "yearWiseQuestionCount": {
+              "2019": 2,
+              "2020": 6,
+              "2021": 8,
+              "2022": 4,
+              "2023": 6,
+              "2024": 3,
+              "2025": 10
+            },
+            "questionSolved": 39,
+            "status": "Completed",
+            "isWeakChapter": true,
+            "created_at": "2025-06-04T02:19:00.000Z",
+            "updated_at": "2025-06-04T02:19:00.000Z"
+          }
+        ]
+      },
+      "errors": []
+    }
+    ```
+
+## Project Structure
+
+```
+secret-echo/
+├── src/
+│   ├── controllers/
+│   │   └── chapter.controller.ts  # API controllers for chapter endpoints
+│   ├── dbProviders/
+│   │   └── chapter.repository.ts  # Database provider for chapter operations
+│   ├── entities/
+│   │   └── chapter.ts             # Mongoose schema for chapters
+│   ├── middleware/
+│   │   ├── context.ts             # SecretEchoContext for dependency injection
+│   │   └── fileUpload.ts          # Multer middleware for file uploads
+│   ├── oplog/
+│   │   ├── error.ts               # Error handling utilities
+│   │   └── oplog.ts               # Logging utility
+│   ├── services/
+│   │   └── chapter.service.ts     # Business logic for chapter operations
+│   ├── types/
+│   │   └── chapters.ts            # TypeScript types and Joi schemas
+│   ├── utils/
+│   │   ├── ids.ts                 # Utility for generating public IDs
+│   │   └── redis.ts               # Redis client configuration
+│   └── index.ts                   # Application entry point
+├── .env                           # Environment variables
+├── package.json                   # Project dependencies
+└── README.md                      # Project documentation
+```
+
+## Future Improvements
+
+- Add automated tests using Jest.
+- Generate API documentation using OpenAPI/Swagger.
+- Add endpoints for updating and deleting chapters.
+- Implement rate limiting for API endpoints.
+- Add support for uploading chapters via JSON body (in addition to file uploads).
+
+## Contributing
+
+Contributions are welcome! Please fork the repository, create a new branch, and submit a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License.
