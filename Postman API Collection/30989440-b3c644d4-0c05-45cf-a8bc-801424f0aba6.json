@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "30989440-b3c644d4-0c05-45cf-a8bc-801424f0aba6",
+		"name": "SecretEcho",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenication",
+			"item": [
+				{
+					"name": "Signup User",
+					"id": "30989440-5e928ba0-b70b-4278-823e-295420b783f2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"secretEchotest@test.com\",\r\n    \"password\":\"SecretEcho\",\r\n    \"first_name\":\"Secret\",\r\n    \"last_name\":\"Echo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signin User",
+					"id": "30989440-dfc1ad83-c4d4-4cbd-b79e-b6a31927a016",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNyXzAxand2cDV3OTZ6MnRweWU1Z2o0ZGh2YXpnIiwicm9sZSI6InVzZXIiLCJzZXNzaW9uX2lkIjoic2VzXzAxand2cDV3ZDNldzdxYnNnZDE1YTEwd3ZyIiwiYXVkaWVuY2UiOiJzZWNyZXRFY2hvLmJhY2tlbmQuaW8iLCJpYXQiOjE3NDg5ODA5MjAsImV4cCI6MTc1MDgxNjMwMTYwNywiYXVkIjoic2VjcmV0RWNoby5iYWNrZW5kLmlvIn0.ZAUGMU5FCDXloCaGQCMqaFVSIxEiT6iDnI3j2rXHj7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"secretEchotest@test.com\",\r\n    \"password\": \"SecretEcho\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"id": "30989440-befc270a-dd39-4671-938f-98c44fc7799c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNyXzAxand2cDV3OTZ6MnRweWU1Z2o0ZGh2YXpnIiwicm9sZSI6InVzZXIiLCJzZXNzaW9uX2lkIjoic2VzXzAxand2cDV3ZDNldzdxYnNnZDE1YTEwd3ZyIiwiYXVkaWVuY2UiOiJzZWNyZXRFY2hvLmJhY2tlbmQuaW8iLCJpYXQiOjE3NDg5ODA5MjAsImV4cCI6MTc1MDgxNjMwMTYwNywiYXVkIjoic2VjcmV0RWNoby5iYWNrZW5kLmlvIn0.ZAUGMU5FCDXloCaGQCMqaFVSIxEiT6iDnI3j2rXHj7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30989440-bb6483df-1410-4505-84d4-91eebdbfbc05"
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get Me",
+					"id": "30989440-2f98cad5-c7ad-47ca-912d-daffb7db749d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNyXzAxand2cDV3OTZ6MnRweWU1Z2o0ZGh2YXpnIiwicm9sZSI6InVzZXIiLCJzZXNzaW9uX2lkIjoic2VzXzAxand2cGIzM3JmcTFrZHpreWFjY3gwcWIyIiwiYXVkaWVuY2UiOiJzZWNyZXRFY2hvLmJhY2tlbmQuaW8iLCJpYXQiOjE3NDg5ODEwOTEsImV4cCI6MTc1MDgxNjQ3MjQ2OCwiYXVkIjoic2VjcmV0RWNoby5iYWNrZW5kLmlvIn0.SRJRe8vag_2wEzEiQgnvhVK5RdlLSdPRnZ7QSxEZcb8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/users/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30989440-3c1321c5-25d2-4c43-a08a-f15f3a84cbbe"
+		},
+		{
+			"name": "Chapters",
+			"item": [
+				{
+					"name": "Create Chapters Via File Upload",
+					"id": "30989440-87f1bc01-bf31-4dca-9ebd-46449c67fe5e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNyXzAxand2cDV3OTZ6MnRweWU1Z2o0ZGh2YXpnIiwicm9sZSI6ImFkbWluIiwic2Vzc2lvbl9pZCI6InNlc18wMWp3dnI3aG5rankwMjRzcnpnY2s5ZGZyNiIsImF1ZGllbmNlIjoic2VjcmV0RWNoby5iYWNrZW5kLmlvIiwiaWF0IjoxNzQ4OTgzMDcyLCJleHAiOjE3NTA4MTg0NTU0NDksImF1ZCI6InNlY3JldEVjaG8uYmFja2VuZC5pbyJ9.EX6ZysA106QnyAmmGugVqMl6nkYP95IUicUD2D_AU0k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"uuid": "deae1df1-a9b8-460e-afec-539a8fbba2fb",
+									"src": "/C:/Users/Shubham Maurya/Downloads/all_subjects_chapter_data (1).json"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/chapters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"chapters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Chapters",
+					"id": "30989440-c37503b0-a12b-4ca2-947c-f79c30c89d47",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNyXzAxand2cDV3OTZ6MnRweWU1Z2o0ZGh2YXpnIiwicm9sZSI6ImFkbWluIiwic2Vzc2lvbl9pZCI6InNlc18wMWp3dnBwbWMyeDc0amNkd2owajI2ZmNmYiIsImF1ZGllbmNlIjoic2VjcmV0RWNoby5iYWNrZW5kLmlvIiwiaWF0IjoxNzQ4OTgxNDY5LCJleHAiOjE3NTA4MTY4NTA5MjYsImF1ZCI6InNlY3JldEVjaG8uYmFja2VuZC5pbyJ9.qqqBtn5xUECzQUmKA-J0dJVb_JsKldc1-H69jTEn0pA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/chapters?class=Class 11&subject=Physics&status=Completed&weakChapters=true&page=1&limit=10&sortBy=chapter&order=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"chapters"
+							],
+							"query": [
+								{
+									"key": "class",
+									"value": "Class 11",
+									"description": "Class to be find"
+								},
+								{
+									"key": "subject",
+									"value": "Physics",
+									"description": "Subject to be find"
+								},
+								{
+									"key": "status",
+									"value": "Completed",
+									"description": "Status of Chapter"
+								},
+								{
+									"key": "weakChapters",
+									"value": "true",
+									"description": "Week Chapter Status"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Page No"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Page Limit"
+								},
+								{
+									"key": "sortBy",
+									"value": "chapter",
+									"description": "Sort By Attribute "
+								},
+								{
+									"key": "order",
+									"value": "asc",
+									"description": "Order of Sorting"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Chapter ID",
+					"id": "30989440-e2465178-97de-4743-9b62-db57bfa208e3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNyXzAxand2cDV3OTZ6MnRweWU1Z2o0ZGh2YXpnIiwicm9sZSI6ImFkbWluIiwic2Vzc2lvbl9pZCI6InNlc18wMWp3dnBwbWMyeDc0amNkd2owajI2ZmNmYiIsImF1ZGllbmNlIjoic2VjcmV0RWNoby5iYWNrZW5kLmlvIiwiaWF0IjoxNzQ4OTgxNDY5LCJleHAiOjE3NTA4MTY4NTA5MjYsImF1ZCI6InNlY3JldEVjaG8uYmFja2VuZC5pbyJ9.qqqBtn5xUECzQUmKA-J0dJVb_JsKldc1-H69jTEn0pA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/chapters/:ChapterID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"chapters",
+								":ChapterID"
+							],
+							"variable": [
+								{
+									"key": "ChapterID",
+									"value": "chp_01jwvtgptp6ekh8qv42gfw0rf8",
+									"description": "Chapter ID to be find"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "30989440-60ed7823-9e3d-4f7f-8899-618d8381fd9d"
+		}
+	]
+}
