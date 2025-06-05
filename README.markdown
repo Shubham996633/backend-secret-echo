@@ -4,6 +4,11 @@
 
 Secret Echo is a backend API built with TypeScript, Express, and MongoDB, designed to manage educational chapters for students. This project provides endpoints to upload, retrieve, and filter chapters, with caching support using Redis. The API supports file uploads for bulk chapter creation, with validation to ensure data integrity, and returns detailed responses for both successful and failed operations.
 
+## Note
+
+ Checking Postman with deployed link or direct access initial not work due to stiffness nature of Render deployment but after trying some time it works 
+
+
 ### Features
 
 - **Upload Chapters via JSON File**: Bulk upload chapters using a JSON file, with support for array   formats.
@@ -25,6 +30,7 @@ Secret Echo is a backend API built with TypeScript, Express, and MongoDB, design
    - Note: Need to  add new Bearer Token as authentication is session Based .
 - **Rate Limiting**: Protects the API from abuse by limiting the number of requests per user, rate limiting is done by Redis.
 - **Deployment on Render**: Hosted on Render with automatic scaling and environment variable management.
+
 
 ## Tech Stack
 
@@ -397,17 +403,12 @@ secret-echo/
 └── README.md                      # Project documentation
 ```
 
-## Future Improvements
 
-- Add automated tests using Jest.
-- Generate API documentation using OpenAPI/Swagger.
-- Add endpoints for updating and deleting chapters.
-- Implement rate limiting for API endpoints.
-- Add support for uploading chapters via JSON body (in addition to file uploads).
 
-## Contributing
 
-Contributions are welcome! Please fork the repository, create a new branch, and submit a pull request with your changes.
+## Contact
+
+For questions or support, reach out to [Shubham Maurya](mailto:shubhammaurya996633@gmail.com).
 
 ## License
 
