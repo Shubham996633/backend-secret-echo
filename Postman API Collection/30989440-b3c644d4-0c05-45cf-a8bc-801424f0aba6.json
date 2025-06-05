@@ -128,7 +128,8 @@
 					"response": []
 				}
 			],
-			"id": "30989440-bb6483df-1410-4505-84d4-91eebdbfbc05"
+			"id": "30989440-bb6483df-1410-4505-84d4-91eebdbfbc05",
+			"description": "The Folder Contains all api that are involved in authentication with base url as  \n\\`"
 		},
 		{
 			"name": "Users",
