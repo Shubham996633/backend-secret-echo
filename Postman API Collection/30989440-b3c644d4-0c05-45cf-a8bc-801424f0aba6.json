@@ -19,7 +19,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"secretEchotest+admin@test.com\",\r\n    \"password\":\"SecretEchoAdmin\",\r\n    \"first_name\":\"SecretAdmin\",\r\n    \"last_name\":\"EchoAdmin\",\r\n    \"role\":\"admin\"\r\n}",
+							"raw": "{\r\n    \"email\":\"secretEchotest+user@test.com\",\r\n    \"password\":\"SecretEchoUser\",\r\n    \"first_name\":\"SecretUser\",\r\n    \"last_name\":\"EchoUser\",\r\n    \"role\":\"user\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
