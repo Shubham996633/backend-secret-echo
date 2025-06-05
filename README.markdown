@@ -329,8 +329,7 @@ The server will run on `http://localhost:3000` (or the port specified in `.env`)
     }
     ```
 
-
-    ### 2. Get Chapter By ID
+### 3. Get Chapter By ID
 
 - **Endpoint**: `GET /api/v1/chapters/:ChapterID`
 - **Description**: Retrieve any chapter with ChapterID .
