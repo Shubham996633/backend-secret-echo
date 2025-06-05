@@ -174,7 +174,7 @@
 				}
 			],
 			"id": "30989440-3c1321c5-25d2-4c43-a08a-f15f3a84cbbe",
-			"description": "Users folder Contains all api that are involved in **Users** Info with base url as  \n`/users`\n\nIt Contains :\n\n- Get ME API\n    \n\n<u><i>API need bearer token</i></u>"
+			"description": "**Users** folder Contains all api that are involved in **Users** Info with base url as  \n`/users`\n\nIt Contains :\n\n- Get ME API\n    \n\n<u><i>API need bearer token</i></u>"
 		},
 		{
 			"name": "Chapters",
@@ -191,7 +191,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNyXzAxand2cDV3OTZ6MnRweWU1Z2o0ZGh2YXpnIiwicm9sZSI6ImFkbWluIiwic2Vzc2lvbl9pZCI6InNlc18wMWp3dnI3aG5rankwMjRzcnpnY2s5ZGZyNiIsImF1ZGllbmNlIjoic2VjcmV0RWNoby5iYWNrZW5kLmlvIiwiaWF0IjoxNzQ4OTgzMDcyLCJleHAiOjE3NTA4MTg0NTU0NDksImF1ZCI6InNlY3JldEVjaG8uYmFja2VuZC5pbyJ9.EX6ZysA106QnyAmmGugVqMl6nkYP95IUicUD2D_AU0k",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNyXzAxangwa2tod3JhdDJ2azR3Z2RmMDduazFlIiwicm9sZSI6InVzZXIiLCJzZXNzaW9uX2lkIjoic2VzXzAxangwa25zY3g2MHc5Z2Y0NDlkdjIzMHI4IiwiYXVkaWVuY2UiOiJzZWNyZXRFY2hvLmJhY2tlbmQuaW8iLCJpYXQiOjE3NDkxNDYwNjgsImV4cCI6MTc1MDk4MTYxNDIyOSwiYXVkIjoic2VjcmV0RWNoby5iYWNrZW5kLmlvIn0.tohcZcRDqDdG9SQ4LzAEcLUzwtp-_4PhU-_rmsXz7kU",
 									"type": "string"
 								}
 							]
@@ -350,7 +350,7 @@
 				}
 			],
 			"id": "30989440-60ed7823-9e3d-4f7f-8899-618d8381fd9d",
-			"description": "**Chapters** Contains all api that are involved in Chapters section with base url as  \n`/chapters`\n\nIt Contains :\n\n- Create Chapters via File Upload\n    \n- Get Chapter Via Chapter ID\n    \n- Get Chapters with various Query Parameters\n    \n\n<u><i>API need bearer token</i></u>"
+			"description": "**Chapters folder** Contains all api that are involved in Chapters section with base url as  \n`/chapters`\n\nIt Contains :\n\n- Create Chapters via File Upload\n    \n- Get Chapter Via Chapter ID\n    \n- Get Chapters with various Query Parameters\n    \n\n<u><i>API need bearer token</i></u>"
 		}
 	]
 }
