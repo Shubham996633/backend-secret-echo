@@ -7,6 +7,13 @@ import { isAdmin } from "../middleware/auth.middleware";
 export function mapUrls(app: express.Express) {
 	const msV1APIRouter = express.Router();
 
+	// status
+	app.get("/", (req, res) => {
+		res.status(200).json({ status: "OK" });
+	});
+
+	// API V1
+
 	app.use("/api/v1", msV1APIRouter);
 
 	msV1APIRouter.post("/auth/signup", signup);

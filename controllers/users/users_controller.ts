@@ -47,6 +47,7 @@ export const signup: RequestHandler = async (req, res) => {
 		email: result.email,
 		first_name: result.first_name,
 		last_name: result.last_name,
+		role: result.role,
 		token: tokenResponse.token,
 	};
 
@@ -82,6 +83,7 @@ export const login: RequestHandler = async (req, res) => {
 		user_pid: result.user_pid,
 		email: result.email,
 		first_name: result.first_name,
+		role: result.role,
 		last_name: result.last_name,
 	};
 
@@ -103,6 +105,7 @@ export const getUserDetails: RequestHandler = async (req, res) => {
 		first_name: result.first_name,
 		last_name: result.last_name,
 		created_at: result.created_at,
+		role: result.role,
 		updated_at: result.updated_at,
 	};
 
