@@ -8,10 +8,23 @@ Secret Echo is a backend API built with TypeScript, Express, and MongoDB, design
 
 - **Upload Chapters via JSON File**: Bulk upload chapters using a JSON file, with support for array   formats.
 - **Retrieve Chapters**: Fetch chapters with filtering, pagination, sorting, and caching.
+- **User Authentication**:
+  - Sign-up and sign-in with email, encrypted password, first name, and last name.
+  - Session-based authentication using JWT tokens for secure API access.
+  - User details and sessions are stored in MongoDB.
 - **Error Handling**: Comprehensive error handling for invalid data, with failed chapters returned in the response.
+- **MongoDB Integration**: Persistent storage for user data, sessions, and chat history.
+- **Middleware**: Secures each Rest API Call on each interaction.
+- **Redis Integration**: Implemented Rate limiting via `Redis-Cloud` with `Sliding window` algorithm
 - **Redis Caching**: Cache chapter data to improve performance, with cache invalidation on updates.
-- **Rate Limiting**: Have a rate limiting setup for the API Exhaust safety.
 - **Mongoose Validation**: Schema validation to ensure data consistency in MongoDB.
+- **Session Management**:
+  - Each sign-in creates a session, ensuring secure access to APIs using JWT tokens.
+  - Logout functionality to invalidate sessions.
+- **Postman API COLLECTION**: Provided Postman API collection with pre-defined data,
+   - Note: Need to  add new Bearer Token as authentication is session Based .
+- **Rate Limiting**: Protects the API from abuse by limiting the number of requests per user, rate limiting is done by Redis.
+- **Deployment on Render**: Hosted on Render with automatic scaling and environment variable management.
 
 ## Tech Stack
 
@@ -79,10 +92,112 @@ The server will run on `http://localhost:3000` (or the port specified in `.env`)
 
 ## API Endpoints
 
+### User Authentication
+
+- **POST /api/v1/auth/signup**  
+  Register a new user.  
+  **Request Body**:
+
+  ```json
+  {
+    "email": "user@example.com",
+    "password": "yourpassword",
+    "first_name": "John",
+    "role": "admin / user (Optional)" ,  
+    "last_name": "Doe"
+  }
+  ```
+
+  **Response**:
+
+  ```json
+  {
+    "success": true,
+    "data": {
+      "user_id": "user_pid",
+      "email": "user@example.com",
+      "first_name": "John",
+      "last_name": "Doe",
+      "role":"admin / user (Optional)" ,  
+      "token": "jwt_token"
+    },
+    "errors": []
+  }
+  ```
+
+- **POST /api/v1/auth/login**  
+  Authenticate a user and create a session.  
+  **Request Body**:
+
+  ```json
+  {
+    "email": "user@example.com",
+    "password": "yourpassword"
+  }
+  ```
+
+  **Response**:
+
+  ```json
+  {
+    "success": true,
+    "data": {
+      "token": "jwt_token",
+      "user": {
+        "user_id": "user_pid",
+        "email": "user@example.com",
+        "first_name": "John",
+        "role": "admin / user (Optional)" ,  
+        "last_name": "Doe"
+      }
+    },
+    "errors": []
+  }
+  ```
+
+- **POST /api/v1/auth/logout**  
+  Log out a user and invalidate their session.  
+  **Headers**:
+  - `Authorization: Bearer <jwt_token>`  
+  **Response**:
+
+  ```json
+  {
+    "success": true,
+    "data": { "message": "Logged out successfully" },
+    "errors": []
+  }
+  ```
+
+- **GET /api/v1/users/me**  
+  Retrieve the authenticated user’s details.  
+  **Headers**:
+  - `Authorization: Bearer <jwt_token>`  
+  **Response**:
+
+  ```json
+  {
+    "success": true,
+    "data": {
+      "user_pid": "user_id",
+      "email": "user@example.com",
+      "first_name": "John",
+      "last_name": "Doe",
+      "role": "admin / user (Optional)" ,  
+      "created_at": "2025-05-08T12:00:00Z",
+      "updated_at": "2025-05-08T12:00:00Z"
+    },
+    "errors": []
+  }
+  ```
+
+
+### Chapters 
+
 ### 1. Upload Chapters
 
 - **Endpoint**: `POST /api/v1/chapters`
-- **Description**: Upload chapters via a JSON file.
+- **Description**: Upload chapters via a JSON file it can be only done by user with role as "Admin" only.
 - **Authentication**: Requires admin authentication (Bearer token).
 - **Request**:
   - Content-Type: `multipart/form-data`
@@ -211,6 +326,45 @@ The server will run on `http://localhost:3000` (or the port specified in `.env`)
         ]
       },
       "errors": []
+    }
+    ```
+
+
+    ### 2. Get Chapter By ID
+
+- **Endpoint**: `GET /api/v1/chapters/:ChapterID`
+- **Description**: Retrieve any chapter with ChapterID .
+- **Authentication**: Requires authentication (Bearer token).
+
+- **Response**:
+  - Status: `200 OK`
+  - Body:
+
+    ```json
+       {
+        "success": true,
+        "data": {
+            "chapter_id": "chp_xxx",
+            "subject": "Physics",
+            "chapter": "Magnetic Properties of Matter",
+            "class": "Class 12",
+            "unit": "Electromagnetism",
+            "yearWiseQuestionCount": {
+                "2019": 3,
+                "2020": 8,
+                "2021": 6,
+                "2022": 2,
+                "2023": 9,
+                "2024": 1,
+                "2025": 2
+            },
+            "questionSolved": 0,
+            "status": "Not Started",
+            "isWeakChapter": true,
+            "created_at": "2025-06-03T21:17:49.783Z",
+            "updated_at": "2025-06-03T21:17:49.783Z"
+        },
+        "errors": []
     }
     ```
 
