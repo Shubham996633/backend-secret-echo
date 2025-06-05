@@ -9,6 +9,16 @@ Secret Echo is a backend API built with TypeScript, Express, and MongoDB, design
  Checking Postman with deployed link or direct access initial not work due to stiffness nature of Render deployment but after trying some time it works 
 
 
+## Demonstarative Video
+
+
+### Watch the Video of Postman with using API with Deployed Render Endpoint
+
+[![alt text](https://github.com/user-attachments/assets/f10937a1-48b8-4ffe-9940-586721152548)](https://www.youtube.com/watch?v=gvB7qMEfqSo)
+
+## Deployed on Render :  [SecretEcho-Backend](https://backend-secret-echo.onrender.com/)
+
+
 ### Features
 
 - **Upload Chapters via JSON File**: Bulk upload chapters using a JSON file, with support for array   formats.
