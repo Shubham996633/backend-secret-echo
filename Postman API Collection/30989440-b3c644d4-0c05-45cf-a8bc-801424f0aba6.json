@@ -173,7 +173,7 @@
 				}
 			],
 			"id": "30989440-3c1321c5-25d2-4c43-a08a-f15f3a84cbbe",
-			"description": "The Folder Contains all api that are involved in Users Info with base url as  \n`/users`\n\nIt Contains :\n\nGet ME API\n\nAPI need bearer token"
+			"description": "The Folder Contains all api that are involved in **Users** Info with base url as  \n`/users`\n\nIt Contains :\n\n- Get ME API\n    \n\n<u><i>API need bearer token</i></u>"
 		},
 		{
 			"name": "Chapters",
