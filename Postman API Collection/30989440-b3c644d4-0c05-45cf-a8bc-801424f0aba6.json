@@ -172,7 +172,8 @@
 					"response": []
 				}
 			],
-			"id": "30989440-3c1321c5-25d2-4c43-a08a-f15f3a84cbbe"
+			"id": "30989440-3c1321c5-25d2-4c43-a08a-f15f3a84cbbe",
+			"description": "The Folder Contains all api that are involved in authentication with base url as  \n`api/v1/auth/`\n\nIt Contains :\n\nSignup API\n\nSignIn API\n\nLogout API\n\nLogout API need bearer token"
 		},
 		{
 			"name": "Chapters",
