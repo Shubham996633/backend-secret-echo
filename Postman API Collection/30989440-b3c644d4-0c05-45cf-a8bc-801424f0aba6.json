@@ -129,7 +129,7 @@
 				}
 			],
 			"id": "30989440-bb6483df-1410-4505-84d4-91eebdbfbc05",
-			"description": "The Folder Contains all api that are involved in authentication with base url as  \n`api/v1/auth/`\n\nIt Contains :\n\nSignup API\n\nSignIn API\n\nLogout API\n\nLogout API need bearer token"
+			"description": "**Authentication folder** contains all api that are involved in **authentication** section with\n\nbase url with\n\n  \n`api/v1/auth/`\n\nIt Contains :\n\n- Signup API\n    \n- SignIn API\n    \n- Logout API\n    \n\n**Logout API need bearer token**"
 		},
 		{
 			"name": "Users",
