@@ -20,7 +20,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"secretEchotest+user@test.com\",\r\n    \"password\":\"SecretEchoUser\",\r\n    \"first_name\":\"SecretUser\",\r\n    \"last_name\":\"EchoUser\",\r\n    \"role\":\"user\"\r\n}",
+							"raw": "{\r\n    \"email\":\"secretEchotest@test.com\",\r\n    \"password\":\"SecretEcho\",\r\n    \"first_name\":\"Secret\",\r\n    \"last_name\":\"Echo\",\r\n    \"role\":\"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -66,7 +66,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"secretEchotest+admin@test.com\",\r\n    \"password\":\"SecretEchoAdmin\"\r\n}",
+							"raw": "{\r\n    \"email\":\"secretEchotestuser@test.com\",\r\n    \"password\":\"SecretEchoUser\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -103,7 +103,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNyXzAxand2cDV3OTZ6MnRweWU1Z2o0ZGh2YXpnIiwicm9sZSI6InVzZXIiLCJzZXNzaW9uX2lkIjoic2VzXzAxand2cDV3ZDNldzdxYnNnZDE1YTEwd3ZyIiwiYXVkaWVuY2UiOiJzZWNyZXRFY2hvLmJhY2tlbmQuaW8iLCJpYXQiOjE3NDg5ODA5MjAsImV4cCI6MTc1MDgxNjMwMTYwNywiYXVkIjoic2VjcmV0RWNoby5iYWNrZW5kLmlvIn0.ZAUGMU5FCDXloCaGQCMqaFVSIxEiT6iDnI3j2rXHj7U",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNyXzAxangwa2JzdG4xcndqcW1uN256NnEydHl6Iiwicm9sZSI6ImFkbWluIiwic2Vzc2lvbl9pZCI6InNlc18wMWp4MGtjcnQ2eTJ6NnNtemIxZ2p3azl0ZSIsImF1ZGllbmNlIjoic2VjcmV0RWNoby5iYWNrZW5kLmlvIiwiaWF0IjoxNzQ5MTQ1NzczLCJleHAiOjE3NTA5ODEzMTg0MjIsImF1ZCI6InNlY3JldEVjaG8uYmFja2VuZC5pbyJ9.cHxrDXqCz3dWM37DBpHOxk--73Uk8atZCPgmSSdWBVw",
 									"type": "string"
 								}
 							]
