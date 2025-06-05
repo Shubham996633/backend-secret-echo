@@ -147,7 +147,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNyXzAxand6ZmRtM3phYjd6ZHpmYTgwamNkMzRxIiwicm9sZSI6ImFkbWluIiwic2Vzc2lvbl9pZCI6InNlc18wMWp4MGp0Y3E2MDh6N21wNGIxNnZna255OCIsImF1ZGllbmNlIjoic2VjcmV0RWNoby5iYWNrZW5kLmlvIiwiaWF0IjoxNzQ5MTQ1MTcwLCJleHAiOjE3NTA5ODA3MTU1MjMsImF1ZCI6InNlY3JldEVjaG8uYmFja2VuZC5pbyJ9.vTUEyt1TXDLRvZPS1IXxu33sxf9bQMtT473vjV2vdNM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNyXzAxangwa2JzdG4xcndqcW1uN256NnEydHl6Iiwicm9sZSI6ImFkbWluIiwic2Vzc2lvbl9pZCI6InNlc18wMWp4MGtlZGVrcmE4ZDd5YTN4cnFlcWNoeCIsImF1ZGllbmNlIjoic2VjcmV0RWNoby5iYWNrZW5kLmlvIiwiaWF0IjoxNzQ5MTQ1ODI2LCJleHAiOjE3NTA5ODEzNzIzNzYsImF1ZCI6InNlY3JldEVjaG8uYmFja2VuZC5pbyJ9.H0aInRXyWObszRD6pyLOH5sTd-kM0moKorYHxym5Ums",
 									"type": "string"
 								}
 							]
@@ -174,7 +174,7 @@
 				}
 			],
 			"id": "30989440-3c1321c5-25d2-4c43-a08a-f15f3a84cbbe",
-			"description": "The Folder Contains all api that are involved in **Users** Info with base url as  \n`/users`\n\nIt Contains :\n\n- Get ME API\n    \n\n<u><i>API need bearer token</i></u>"
+			"description": "Users Contains all api that are involved in **Users** Info with base url as  \n`/users`\n\nIt Contains :\n\n- Get ME API\n    \n\n<u><i>API need bearer token</i></u>"
 		},
 		{
 			"name": "Chapters",
