@@ -349,7 +349,7 @@
 				}
 			],
 			"id": "30989440-60ed7823-9e3d-4f7f-8899-618d8381fd9d",
-			"description": "The Folder Contains all api that are involved in Chapters with base url as  \n`/users`\n\nIt Contains :\n\nGet ME API\n\nAPI need bearer token"
+			"description": "The Folder Contains all api that are involved in Chapters with base url as  \n`/chapters`\n\nIt Contains :\n\n- Create Chapters via File Upload\n    \n- Get Chapter Via Chapter ID\n    \n- Get Chapters with various Query Parameters"
 		}
 	]
 }
