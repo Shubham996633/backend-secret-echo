@@ -10,42 +10,6 @@
 			"name": "Authenication",
 			"item": [
 				{
-					"name": "Signup User",
-					"id": "30989440-5e928ba0-b70b-4278-823e-295420b783f2",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"secretEchotest@test.com\",\r\n    \"password\":\"SecretEcho\",\r\n    \"first_name\":\"Secret\",\r\n    \"last_name\":\"Echo\",\r\n    \"role\":\"admin\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://backend-secret-echo.onrender.com/api/v1/auth/signup",
-							"protocol": "https",
-							"host": [
-								"backend-secret-echo",
-								"onrender",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"signup"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Signin User",
 					"id": "30989440-dfc1ad83-c4d4-4cbd-b79e-b6a31927a016",
 					"protocolProfileBehavior": {
